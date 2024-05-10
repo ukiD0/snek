@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">StartProjeect</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="dobroPozh">Wellcome To Nike</string>
+    <string name="Start">Get Started</string>
+    <string name="Next">Next</string>
+    <string name="startTravel">Let’s Start Journey With Nike</string>
+    <string name="secondFragmentText">Smart, Gorgeous &amp; Fashionable Collection Explor Now</string>
+    <string name="Power">You Have the Power To</string>
+    <string name="beautidul">There Are Many Beautiful And Attractive Plants To Your Room</string>
+    <string name="logintext">Заполните Свои Данные Или Продолжите Через Социальные Медиа</string>
+    <string name="logInMain">Hello Again!</string>
+    <string name="reg">Register Account</string>
+    <string name="pdf"><a href="">Даю согласие на обработку персональных данных</a></string>
+    <string name="forgotPassword">Введите Свою Учетную Запись Для Сброса</string>
+    <string name="OTPmainText">Please check your email to see the verification code</string>
+    <string name="otp_text">OTP Verification</string>
+    <string name="sales">Акции</string>
+    <string name="popilar">Popular Shoes</string>
+    <string name="lorem">Lorem ipsum dolor sit amet consectetur. Venenatis pulvinar lobortis risus consectetur morbi egestas id in bibendum. Volutpat nulla urna sit sed diam nulla.</string>
+
+    <string name="email">Check your email</string>
+    <string name="text_from_dialog">We have send password recovery code in your email</string>
+</resources>

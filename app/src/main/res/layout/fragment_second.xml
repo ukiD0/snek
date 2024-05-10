@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.onboarding.SecondFragment"
+    android:orientation="vertical"
+    android:theme="@style/OnBoarding"
+    android:background="@drawable/background_color">
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/second_sneekers"
+        android:layout_marginTop="85dp"
+        android:layout_gravity="center"/>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:text="@string/startTravel"
+        style="@style/textOnBoarding"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="45dp"/>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="@string/secondFragmentText"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="12dp"
+        style="@style/textSecondOnBoarding"/>
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/frag_sec"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/button_onboarding"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="@string/Next"
+        android:textAllCaps="false"
+        android:layout_marginTop="84dp"
+        />
+
+
+
+</LinearLayout>

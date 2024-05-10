@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="NewSplashScreen" parent="Theme.SplashScreen">
+        <item name="android:windowBackground">@drawable/background_color</item>
+<!--        <item name="android:windowSplashScreenBackground" tools:targetApi="s">@android:color/holo_red_dark</item>-->
+        <item name="android:windowSplashScreenAnimatedIcon" tools:targetApi="s">@drawable/ic_launcher_foreground</item>
+        <item name="postSplashScreenTheme">@style/OnBoarding</item>
+    </style>
+
+    <style name="ForFloatingButton" parent="Theme.MaterialComponents">
+    </style>
+
+    <style name="setBackColor" parent="Theme.MaterialComponents">
+        <item name="tint">@color/white</item>
+    </style>
+    <style name="textOnBoarding" parent="">
+        <item name="android:textSize">30dp</item>
+        <item name="android:textColor">@color/white_for_app</item>
+        <item name="android:textFontWeight">900</item>
+        <item name="fontFamily">@font/raleway_bold</item>
+    </style>
+    <style name="textSecondOnBoarding" parent="">
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">#D8D8D8</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="fontFamily">@font/poppins</item>
+    </style>
+    <style name="loginBig" parent="">
+        <item name="android:textSize">32dp</item>
+        <item name="android:textColor">@color/black_for_app</item>
+        <item name="android:textFontWeight">700</item>
+        <item name="fontFamily">@font/raleway_bold</item>
+    </style>
+    <style name="loginSmall" parent="">
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="fontFamily">@font/poppins</item>
+    </style>
+    <style name="blueBTN" parent="">
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textFontWeight">600</item>
+        <item name="fontFamily">@font/poppins</item>
+    </style>
+    <style name="textInput" parent="">
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">@color/dark_gray</item>
+        <item name="android:textFontWeight">500</item>
+        <item name="fontFamily">@font/poppins</item>
+    </style>
+    <style name="recovery" parent="">
+        <item name="android:textSize">12dp</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="fontFamily">@font/poppins</item>
+    </style>
+    <style name="vpervii" parent="">
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">@color/dark_gray</item>
+        <item name="android:textFontWeight">500</item>
+        <item name="fontFamily">@font/poppins</item>
+    </style>
+    <style name="categoryStyle" parent="">
+        <item name="android:textSize">12dp</item>
+        <item name="android:textColor">@color/black_for_app</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="fontFamily">@font/poppins</item>
+    </style>
+
+</resources>

@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#FF000000</color>
+    <color name="black_for_app">#2B2B2B</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="light_blue">#48B2E7</color>
+    <color name="end_blue">#0076B1</color>
+    <color name="cream_back">#F7F7F9</color>
+    <color name="gray">#707B81</color>
+    <color name="dark_gray">#6A6A6A</color>
+    <color name="white_for_app">#ECECEC</color>
+    <color name="test_back">#F7F7F9</color>
 </resources>

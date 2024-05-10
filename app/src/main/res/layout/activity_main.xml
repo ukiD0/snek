@@ -1,18 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".presentation.MainActivity"
+    android:orientation="vertical"
+    android:background="@color/test_back"
+    android:theme="@style/Base.Theme.StartProjeect"
+    >
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardviewmain"
+        android:visibility="gone"
+        app:cardBackgroundColor="@color/test_back"
+        android:layout_width="match_parent"
+        android:elevation="0dp"
+        app:cardElevation="0dp"
+        android:layout_height="50dp">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/arrowback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_back"
+            android:layout_marginLeft="20dp"
+            android:layout_gravity="center|left"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/hamburgermenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/hamburger"
+            android:layout_marginLeft="20dp"
+            android:layout_gravity="center|left"
+            android:visibility="invisible"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/maintext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/main_text"
+            android:layout_gravity="center|center"
+            android:visibility="gone"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/texttexttext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="test"
+            android:layout_gravity="center|center"
+            android:visibility="gone"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/shoppingbagred"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/shopping_bag_red"
+            android:layout_marginRight="20dp"
+            android:layout_gravity="center|right"
+            android:visibility="gone"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/hearticon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/heart_icon"
+            android:layout_marginRight="20dp"
+            android:layout_gravity="center|right"
+            android:visibility="gone"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textReady"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:text="text"
+            android:layout_gravity="center|right"
+            android:visibility="gone"/>
+    </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <fragment
+        android:id="@+id/fragment_container_view_tag"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/my_nav"
+        />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/menumainID"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:theme="@style/ForFloatingButton"
+        android:visibility="gone"
+        >
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bottomAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            app:fabCradleMargin="20dp"
+            android:layout_gravity="bottom"
+            app:fabCradleRoundedCornerRadius="20dp"
+            app:addElevationShadow="true"
+            app:fabAlignmentMode="center"
+            app:elevation="100dp"
+            >
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/btmNAV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:menu="@menu/my_menu"
+                app:itemIconTint="@color/for_menu_items"
+                android:layout_margin="15dp"
+                app:labelVisibilityMode="unlabeled"
+                app:itemHorizontalTranslationEnabled="true"
+                app:itemActiveIndicatorStyle="@android:color/transparent"
+                android:layout_gravity="bottom"
+                app:itemIconSize="23dp"
+                />
+        </com.google.android.material.bottomappbar.BottomAppBar>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatbtn"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            app:layout_anchor="@id/bottomAppBar"
+            android:backgroundTint="@color/light_blue"
+            app:borderWidth="0dp"
+            app:elevation="10dp"
+            android:outlineSpotShadowColor="@color/light_blue"
+            android:outlineAmbientShadowColor="@color/light_blue"
+            android:src="@drawable/ic_bag"
+            style="@style/setBackColor"
+            android:layout_marginBottom="5dp"
+            android:layout_gravity="center"
+            />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+
+</LinearLayout>

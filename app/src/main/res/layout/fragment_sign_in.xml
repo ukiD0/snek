@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".presentation.registration.SignInFragment"
+    android:theme="@style/mainscreens"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:id="@+id/signinIdforFragment">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/arrowback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_back"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/logInMain"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        style="@style/loginBig"/>
+    <TextView
+        android:layout_width="300dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:text="@string/logintext"
+        android:gravity="center"
+        android:layout_marginTop="8dp"
+        style="@style/loginSmall"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="vertical">
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:layout_marginTop="30dp"/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="12dp"
+            app:passwordToggleDrawable="@drawable/eye_slash"
+            app:passwordToggleEnabled="true"
+            app:hintEnabled="false">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="xyz@gmail.com"
+                android:inputType="textEmailAddress"
+                android:background="@drawable/input_text"
+                style="@style/textInput"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Пароль"
+            android:layout_marginTop="30dp"/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="12dp"
+            app:passwordToggleDrawable="@drawable/eye_slash"
+            app:passwordToggleEnabled="true"
+            app:hintEnabled="false">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="●●●●●●●●"
+                android:inputType="textPassword"
+                android:background="@drawable/input_text"
+                style="@style/textInput"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/revoveryText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Восстановить"
+            android:layout_gravity="right"
+            android:layout_marginTop="12dp"
+            style="@style/recovery"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/logindtnn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/blue_btn"
+            android:layout_marginTop="25dp"
+            android:text="Войти"
+            android:textAllCaps="false"
+            style="@style/blueBTN" />
+    </LinearLayout>
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="50dp">
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Вы впервые?"
+            android:layout_marginRight="3dp"
+            style="@style/vpervii"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/createUserTExt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Создать пользователя"
+            style="@style/vpervii"
+            android:textColor="#2B2B2B"/>
+    </LinearLayout>
+
+
+
+
+</LinearLayout>
