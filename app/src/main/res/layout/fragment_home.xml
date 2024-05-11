@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:layout_marginRight="15dp">
 
 
     <LinearLayout
@@ -10,7 +11,7 @@
         android:layout_height="40dp"
         android:background="@drawable/shape_category">
         <TextView
-            android:id="@+id/item_number"
+            android:id="@+id/nameCategory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"

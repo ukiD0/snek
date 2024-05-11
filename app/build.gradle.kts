@@ -57,6 +57,8 @@ dependencies {
     implementation ("com.yandex.android:maps.mobile:4.5.1-lite")
     implementation("androidx.core:core-splashscreen:1.0.1")
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
+    implementation ("com.google.zxing:core:3.4.0")
+
 
 
 

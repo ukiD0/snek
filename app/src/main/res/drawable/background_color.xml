@@ -13,4 +13,21 @@
         android:gradientRadius="100"
         android:angle="-90">
     </gradient>
+
+<!--    <item>-->
+<!--        &lt;!&ndash;<color android:color="#2196F3"/>&ndash;&gt;-->
+<!--        <shape android:shape="rectangle">-->
+<!--            <gradient-->
+<!--                android:startColor="#2196F3"-->
+<!--                android:endColor="#1976D2"-->
+<!--                android:angle="-90"-->
+<!--                />-->
+<!--        </shape>-->
+<!--    </item>-->
+<!--    <item>-->
+<!--        <bitmap-->
+<!--            android:src="@drawable/logo"-->
+<!--            android:gravity="center"-->
+<!--            />-->
+<!--    </item>-->
 </shape>

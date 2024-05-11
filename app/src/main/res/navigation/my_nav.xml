@@ -63,6 +63,11 @@
             app:destination="@id/viewPagerFragment"
             app:popUpTo="@id/screenSplashFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_screenSplashFragment_to_signInFragment"
+            app:destination="@id/signInFragment"
+            app:popUpTo="@id/screenSplashFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/OTPVerificationFragment"
@@ -97,7 +102,11 @@
         android:id="@+id/homeFragment"
         android:name="com.example.startprojeect.presentation.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_shoppingBagFragment"
+            app:destination="@id/shoppingBagFragment" />
+    </fragment>
     <fragment
         android:id="@+id/pdfViewFragment"
         android:name="com.example.startprojeect.presentation.registration.PdfViewFragment"
@@ -131,4 +140,13 @@
         android:name="com.example.startprojeect.presentation.NotificationFragment"
         android:label="fragment_notification_list"
         tools:layout="@layout/fragment_notification_list" />
+    <fragment
+        android:id="@+id/shoppingBagFragment"
+        android:name="com.example.startprojeect.presentation.ShoppingBagFragment"
+        android:label="fragment_shopping_bag_list"
+        tools:layout="@layout/fragment_shopping_bag_list" >
+        <action
+            android:id="@+id/action_shoppingBagFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 </navigation>

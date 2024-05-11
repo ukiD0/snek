@@ -5,6 +5,8 @@
  * */
 package com.example.startprojeect.presentation
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
@@ -17,12 +19,15 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.startprojeect.R
 import com.example.startprojeect.common.ApiKey
 import com.example.startprojeect.databinding.ActivityMainBinding
+import com.example.startprojeect.databinding.FragmentSignInBinding
 import com.example.startprojeect.domain.StateViewModel
+import com.example.startprojeect.presentation.registration.SignInFragment
 import com.yandex.mapkit.MapKitFactory
 
 
@@ -109,5 +114,6 @@ class MainActivity : AppCompatActivity() {
         windowParams.screenBrightness = 0.8f
         window.attributes = windowParams
     }
+
 
 }

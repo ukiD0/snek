@@ -4,7 +4,7 @@
     <style name="NewSplashScreen" parent="Theme.SplashScreen">
         <item name="android:windowBackground">@drawable/background_color</item>
 <!--        <item name="android:windowSplashScreenBackground" tools:targetApi="s">@android:color/holo_red_dark</item>-->
-        <item name="android:windowSplashScreenAnimatedIcon" tools:targetApi="s">@drawable/ic_launcher_foreground</item>
+<!--        <item name="android:windowSplashScreenAnimatedIcon" tools:targetApi="s">@drawable/ic_launcher_foreground</item>-->
         <item name="postSplashScreenTheme">@style/OnBoarding</item>
     </style>
 
@@ -66,6 +66,18 @@
         <item name="android:textSize">12dp</item>
         <item name="android:textColor">@color/black_for_app</item>
         <item name="android:textFontWeight">400</item>
+        <item name="fontFamily">@font/poppins</item>
+    </style>
+    <style name="blueText" parent="">
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">@color/light_blue</item>
+        <item name="android:textFontWeight">600</item>
+        <item name="fontFamily">@font/poppins</item>
+    </style>
+    <style name="nameProfileText" parent="">
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">@color/black_for_app</item>
+        <item name="android:textFontWeight">600</item>
         <item name="fontFamily">@font/poppins</item>
     </style>
 

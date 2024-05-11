@@ -5,8 +5,12 @@
     android:layout_height="match_parent"
     tools:context=".presentation.registration.PdfViewFragment">
 
-    <com.github.barteksc.pdfviewer.PDFView
-        android:id="@+id/pdfdf"
+<!--    <com.github.barteksc.pdfviewer.PDFView-->
+<!--        android:id="@+id/pdfdf"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"/>-->
+    <WebView
+        android:id="@+id/webView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

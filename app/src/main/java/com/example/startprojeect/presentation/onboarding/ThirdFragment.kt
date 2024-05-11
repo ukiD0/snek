@@ -38,7 +38,7 @@ class ThirdFragment : Fragment() {
     private fun onBoardingFinished(){
         val sharedPred = requireActivity().getSharedPreferences("OnBoarding",Context.MODE_PRIVATE)
         val editor = sharedPred.edit()
-        editor.putBoolean("Finidhed",true)
+        editor.putBoolean("Finished",true)
         editor.apply()
     }
 

@@ -5,7 +5,7 @@ import android.content.Context
 
 class Helper{
     companion object{
-        fun Alert(context: Context,title: String, message:String,btnOk:String,btnCancel:String){
+        fun Alert(context: Context,title: String, message:String,btnOk:String = "Ok",btnCancel:String = "Cancel"){
             AlertDialog.Builder(context)
                 .setTitle(title)
                 .setMessage(message)

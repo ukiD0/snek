@@ -6,10 +6,13 @@
 package com.example.startprojeect.presentation.registration
 
 import android.os.Bundle
+import android.os.FileUtils
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.widget.ImageViewCompat
 import androidx.lifecycle.ViewModel
@@ -39,8 +42,13 @@ class PdfViewFragment : Fragment() {
             findNavController().navigate(R.id.action_pdfViewFragment_to_registerAccountFragment)
         }
 
-        binding.pdfdf.fromAsset("images.pdf").load()
-
+        //from Assets
+//        binding.pdfdf.fromAsset("images.pdf").load()
+        //From url
+        binding.webView.webViewClient = WebViewClient()
+//        binding.webView.settings.setSupportZoom(true)
+//        binding.webView.settings.javaScriptEnabled = true
+        binding.webView.loadUrl("https://drive.google.com/file/d/1naRe-1CCOMikzbiarzNd9NFS06u7f5Zv/view?usp=sharing")
 
         return binding.root
     }

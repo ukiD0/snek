@@ -11,15 +11,22 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.startprojeect.R
+import com.example.startprojeect.common.Helper
 import com.example.startprojeect.databinding.FragmentOTPVerificationBinding
+import com.example.startprojeect.domain.AuthViewModel
+import io.github.jan.supabase.gotrue.user.UserInfo
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import okhttp3.Dispatcher
 
 
 class OTPVerificationFragment : Fragment() {
     private lateinit var binding: FragmentOTPVerificationBinding
+    private lateinit var authViewModel: AuthViewModel
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -33,34 +40,53 @@ class OTPVerificationFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentOTPVerificationBinding.inflate(inflater,container,false)
+        authViewModel = ViewModelProvider(requireActivity())[AuthViewModel::class.java]
 
-        var min = 30
         val timer = object  : CountDownTimer(30000,1000){
-            override fun onTick(p0: Long) {
-                min--
-                if (min <= 0 ){
-                    cancel()
-                    binding.senadAgain.isEnabled = false
-                    binding.timer.isEnabled = true
-                    min = 30
-                }else{
-                    binding.timer.text ="00:$min"
-                }
+            override fun onTick(milSec: Long) {
+               binding.timer.text = "00:${milSec/1000}"
+                binding.senadAgain.isEnabled = false
             }
-
             override fun onFinish() {
+                binding.timer.text = "00:00"
+                binding.senadAgain.isEnabled = true
             }
 
         }
         binding.senadAgain.setOnClickListener {
-            timer.start()
-            binding.timer.isEnabled = false
+            lifecycleScope.launch {
+                try {
+                    authViewModel.sendOTP()
+                }catch (e:Exception){
+                    Helper.Alert(requireContext(),e.cause.toString(),e.message.toString())
+                }
+            }.invokeOnCompletion {
+                timer.start()
+            }
         }
         timer.start()
 
         binding.logindtnn.setOnClickListener {
-            findNavController().navigate(R.id.action_OTPVerificationFragment_to_newPassswordFragment)
+            var result: UserInfo? = null
+            lifecycleScope.launch {
+                try {
+                    result = authViewModel.verificationOTP(
+                        binding.one.text.toString()
+                                + binding.two.text.toString()
+                                + binding.three.text.toString()
+                                + binding.four.text.toString()
+                                + binding.five.text.toString()
+                                + binding.six.text.toString())
+                }catch (e:Exception){
+                    Helper.Alert(requireContext(),e.cause.toString(),e.message.toString())
+                }
+            }.invokeOnCompletion {
+                if (result != null){
+                    findNavController().navigate(R.id.action_OTPVerificationFragment_to_newPassswordFragment)
+                }
+            }
         }
+
         binding.arrowback.setOnClickListener {
             findNavController().navigate(R.id.action_OTPVerificationFragment_to_forgotPasswordFragment)
         }

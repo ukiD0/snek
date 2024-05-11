@@ -57,7 +57,7 @@
         android:layout_marginLeft="23dp"
         android:layout_marginTop="24dp"/>
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/list"
+        android:id="@+id/listCategory"
         android:name="com.example.startprojeect.presentation.HomeFragment"
         android:layout_width="match_parent"
         android:layout_height="45dp"
@@ -127,17 +127,17 @@
             android:layout_height="wrap_content"
             android:text="Все" />
     </LinearLayout>
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="3dp">
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/reklama1"/>
-    </HorizontalScrollView>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list_stock"
+            android:name="com.example.startprojeect.presentation.FavoriteFragment"
+            android:layout_width="match_parent"
+            android:layout_height="105dp"
+            tools:context=".presentation.FavoriteFragment"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/fragment_stock"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"/>
         </LinearLayout>
     </LinearLayout>
     </ScrollView>

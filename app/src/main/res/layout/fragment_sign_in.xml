@@ -58,6 +58,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="xyz@gmail.com"
+                android:text="valusakorovkina@gmail.com"
                 android:inputType="textEmailAddress"
                 android:background="@drawable/input_text"
                 style="@style/textInput"
@@ -84,6 +85,7 @@
                 android:inputType="textPassword"
                 android:background="@drawable/input_text"
                 style="@style/textInput"
+                android:text="123456789"
                 />
         </com.google.android.material.textfield.TextInputLayout>
         <androidx.appcompat.widget.AppCompatTextView
