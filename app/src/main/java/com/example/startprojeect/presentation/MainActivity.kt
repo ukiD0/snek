@@ -29,6 +29,7 @@ import com.example.startprojeect.databinding.FragmentSignInBinding
 import com.example.startprojeect.domain.StateViewModel
 import com.example.startprojeect.presentation.registration.SignInFragment
 import com.yandex.mapkit.MapKitFactory
+import io.paperdb.Paper
 
 
 class MainActivity : AppCompatActivity() {
@@ -37,7 +38,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen()
         super.onCreate(savedInstanceState)
-
+        Paper.init(this)
         binding = ActivityMainBinding.inflate(layoutInflater)
         MapKitFactory.setApiKey(ApiKey.MAPKIT_API_KEY)
 

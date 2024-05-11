@@ -10,6 +10,7 @@ import io.github.jan.supabase.gotrue.auth
 import io.github.jan.supabase.gotrue.providers.builtin.Email
 import io.github.jan.supabase.gotrue.providers.builtin.OTP
 import io.github.jan.supabase.gotrue.user.UserInfo
+import io.paperdb.Paper
 
 class AuthViewModel:ViewModel() {
 
@@ -35,7 +36,12 @@ class AuthViewModel:ViewModel() {
             email = out_email
             password = out_password
         }
-        return DbCon.supabase.auth.currentUserOrNull()
+        val user = DbCon.supabase.auth.currentUserOrNull()
+        if (user != null){
+            Paper.book().write("isUserLogin", true)
+        }
+        return user
+
     }
     suspend fun logOut(){
         DbCon.supabase.auth.signOut()

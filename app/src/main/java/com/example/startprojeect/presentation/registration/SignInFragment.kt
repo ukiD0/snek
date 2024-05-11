@@ -22,6 +22,7 @@ import com.example.startprojeect.databinding.FragmentSignInBinding
 import com.example.startprojeect.domain.AuthViewModel
 import com.example.startprojeect.domain.StateViewModel
 import io.github.jan.supabase.gotrue.user.UserInfo
+import io.paperdb.Paper
 import kotlinx.coroutines.launch
 
 
@@ -48,15 +49,17 @@ class SignInFragment : Fragment() {
             var result: UserInfo? = null
             lifecycleScope.launch {
                 try {
-                   result = authViewModel.logIn(binding.email.text.toString(),binding.password.text.toString())
+                    result = authViewModel.logIn(binding.email.text.toString(),binding.password.text.toString())
                 }catch (e:Exception){
                     Helper.Alert(requireContext(),e.cause.toString(),e.message.toString())
                 }
             }.invokeOnCompletion {
-                if (result != null){
+                var userIsLogin = Paper.book().read<Boolean>("isUserLogin") ?: false
+                if (result != null || userIsLogin){
                     findNavController().navigate(R.id.action_signInFragment_to_homeFragment)
                 }
             }
+
         }
 
         binding.createUserTExt.setOnClickListener {

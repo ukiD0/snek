@@ -41,6 +41,7 @@ android {
 }
 
 dependencies {
+    implementation("io.github.pilgr:paperdb:2.7.2")
     implementation ("io.ktor:ktor-client-cio:2.3.8")
     implementation("io.github.jan-tennert.supabase:postgrest-kt:2.3.0")
     implementation ("androidx.navigation:navigation-fragment-ktx:2.7.7")
@@ -57,7 +58,9 @@ dependencies {
     implementation ("com.yandex.android:maps.mobile:4.5.1-lite")
     implementation("androidx.core:core-splashscreen:1.0.1")
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
-    implementation ("com.google.zxing:core:3.4.0")
+    //barcode
+
+    implementation("com.journeyapps:zxing-android-embedded:4.3.0")
 
 
 
