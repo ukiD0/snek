@@ -13,7 +13,11 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.AppCompatImageView
+import androidx.appcompat.widget.AppCompatTextView
+import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.startprojeect.R
 import com.example.startprojeect.databinding.FragmentFavoriteListBinding
 import com.example.startprojeect.domain.StateViewModel
@@ -36,6 +40,12 @@ class FavoriteFragment : Fragment() {
         binding = FragmentFavoriteListBinding.inflate(layoutInflater,container,false)
         stateViewModel = ViewModelProvider(requireActivity())[StateViewModel::class.java]
 
+        val ready = requireActivity().findViewById<AppCompatTextView>(R.id.textReady)
+        ready.isVisible = false
+        val mainText = requireActivity().findViewById<AppCompatTextView>(R.id.texttexttext)
+        mainText.setText("Избранное")
+        mainText.isVisible = true
+        stateViewModel.cardVisibility(false)
         stateViewModel.upperMenuVIsibility(true)
         stateViewModel.menuVisibility(true)
         stateViewModel.hamburgerVisibility(false)
@@ -43,6 +53,12 @@ class FavoriteFragment : Fragment() {
         stateViewModel.shoppingVisibility(false)
         stateViewModel.heartVisibility(true)
         stateViewModel.setText("Избранное")
+
+        val arrback = requireActivity().findViewById<AppCompatImageView>(R.id.arrowback)
+        arrback.setOnClickListener {
+            findNavController().navigate(R.id.action_favoriteFragment_to_homeFragment)
+        }
+
 
         return binding.root
     }

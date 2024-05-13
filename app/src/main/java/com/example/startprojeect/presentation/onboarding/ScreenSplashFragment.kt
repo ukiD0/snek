@@ -3,7 +3,7 @@
  * Author Korovkina Valentina
  * Created date 06.05.2024
  * */
-package com.example.startprojeect.presentation
+package com.example.startprojeect.presentation.onboarding
 
 import android.content.Context
 import android.os.Bundle

@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.FavoriteFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
     android:id="@+id/list"
     android:name="com.example.startprojeect.presentation.FavoriteFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center"
+    android:layout_marginLeft="20dp"
     app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
     tools:context=".presentation.FavoriteFragment"
     tools:listitem="@layout/fragment_favorite"
     app:spanCount="2"/>
+
+</LinearLayout>

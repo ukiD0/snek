@@ -15,7 +15,7 @@
         android:id="@+id/notificationFragment"
         android:icon="@drawable/bell_gray"/>
     <item android:title="Item4"
-        android:id="@+id/four"
+        android:id="@+id/profileFragment"
         android:icon="@drawable/profile_gray"/>
 
 </menu>

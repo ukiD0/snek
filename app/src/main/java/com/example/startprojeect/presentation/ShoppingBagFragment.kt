@@ -17,10 +17,14 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.appcompat.widget.AppCompatImageView
+import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.startprojeect.R
+import com.example.startprojeect.common.Helper
 import com.example.startprojeect.databinding.BottomSheetBarcodeBinding
 import com.example.startprojeect.databinding.FragmentShoppingBagListBinding
 import com.example.startprojeect.domain.StateViewModel
@@ -41,14 +45,27 @@ class ShoppingBagFragment : Fragment() {
         binding = FragmentShoppingBagListBinding.inflate(layoutInflater, container, false)
         stateViewModel = ViewModelProvider(requireActivity())[StateViewModel::class.java]
 
-        stateViewModel.cardVisibility(true)
+        val ready = requireActivity().findViewById<AppCompatTextView>(R.id.textReady)
+        ready.isVisible = false
+        val mainText = requireActivity().findViewById<AppCompatTextView>(R.id.texttexttext)
+        mainText.setText("Корзина")
+        mainText.isVisible = true
+
+        stateViewModel.cardVisibility(false)
         stateViewModel.heartVisibility(false)
         stateViewModel.menuVisibility(false)
         stateViewModel.arrowVisibility(true)
         stateViewModel.hamburgerVisibility(false)
         stateViewModel.upperMenuVIsibility(true)
         stateViewModel.shoppingVisibility(false)
-        stateViewModel.setText("Корзина")
+
+
+
+        var arrowBack = requireActivity().findViewById<AppCompatImageView>(R.id.arrowback)
+        arrowBack.setOnClickListener {
+            findNavController().navigate(R.id.action_shoppingBagFragment_to_homeFragment)
+        }
+
         generateBarCode()
         val gesture = GestureDetector(requireActivity(), object : GestureDetector.SimpleOnGestureListener() {
             override fun onFling(e1: MotionEvent?, e2: MotionEvent, velocityX: Float, velocityY: Float): Boolean {
@@ -73,7 +90,6 @@ class ShoppingBagFragment : Fragment() {
             gesture.onTouchEvent(motionEvent)
             true
         }
-
         return binding.root
     }
 
@@ -92,7 +108,9 @@ class ShoppingBagFragment : Fragment() {
                 200)
             bottomSheetViewBinding.barCodeText.text = code
             bottomSheetViewBinding.barCodeContainer.setImageBitmap(bitmap)
+
         } catch (e: Exception) {
+            Helper.Alert(requireContext(),e.cause.toString(),e.message.toString())
         }
     }
 

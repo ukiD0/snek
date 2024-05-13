@@ -44,13 +44,40 @@
         android:layout_gravity="center"
         android:layout_marginTop="8dp"
         style="@style/blueText"/>
-    <androidx.appcompat.widget.AppCompatImageView
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:background="@drawable/barcode"
-        android:layout_marginRight="17dp"
-        android:layout_marginLeft="17dp"
-        android:layout_marginTop="10dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:background="@drawable/barcode"
+            android:layout_marginRight="17dp"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:background="@color/white"
+                android:layout_margin="8dp">
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Открыть"
+                    android:rotation="-90"
+                    android:gravity="center"
+                    />
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/barcode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitXY"
+                    android:layout_gravity="center"
+                    />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/barcodeText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -65,6 +92,7 @@
             android:text="Имя"
             style="@style/nameProfileText"/>
         <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/nameEditText"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:background="@drawable/barcode"
@@ -75,8 +103,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Фамилия"
+            android:layout_marginTop="15dp"
             style="@style/nameProfileText"/>
         <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/surnameEditText"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:background="@drawable/barcode"
@@ -87,8 +117,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Адрес"
+            android:layout_marginTop="15dp"
             style="@style/nameProfileText"/>
         <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/adressEditText"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:background="@drawable/barcode"
@@ -99,8 +131,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Телефон"
+            android:layout_marginTop="15dp"
             style="@style/nameProfileText"/>
         <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/telephoneEditText"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:background="@drawable/barcode"

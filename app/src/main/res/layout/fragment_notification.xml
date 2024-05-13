@@ -12,26 +12,28 @@
         android:background="@drawable/notific_back"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-      >
+        android:layout_marginRight="20dp">
         <TextView
             android:id="@+id/zagolovok"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Заголовок"/>
+            android:text="Заголовок"
+            style="@style/h1Notification"/>
 
         <TextView
             android:id="@+id/content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/lorem"
-            android:layout_marginTop="8dp"/>
+            android:layout_marginTop="8dp"
+            style="@style/textNotification"/>
         <TextView
             android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="27.01.2024, 15:42"
-            android:layout_marginTop="15dp"/>
+            android:layout_marginTop="15dp"
+            style="@style/dateNotification"/>
     </LinearLayout>
 
 </LinearLayout>

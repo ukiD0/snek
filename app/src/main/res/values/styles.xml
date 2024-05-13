@@ -74,10 +74,58 @@
         <item name="android:textFontWeight">600</item>
         <item name="fontFamily">@font/poppins</item>
     </style>
+    <style name="readyBlue" parent="">
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">@color/light_blue</item>
+        <item name="android:textFontWeight">700</item>
+        <item name="fontFamily">@font/poppins</item>
+    </style>
     <style name="nameProfileText" parent="">
         <item name="android:textSize">16dp</item>
         <item name="android:textColor">@color/black_for_app</item>
         <item name="android:textFontWeight">600</item>
+        <item name="fontFamily">@font/poppins</item>
+    </style>
+    <style name="h1Notification" parent="">
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">@color/black_for_app</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="fontFamily">@font/poppins</item>
+    </style>
+    <style name="textNotification" parent="">
+        <item name="android:textSize">12dp</item>
+        <item name="android:textColor">@color/black_for_app</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="fontFamily">@font/poppins</item>
+    </style>
+    <style name="dateNotification" parent="">
+        <item name="android:textSize">12dp</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="fontFamily">@font/poppins</item>
+    </style>
+    <style name="suc" parent="">
+        <item name="android:textSize">20dp</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textFontWeight">500</item>
+        <item name="fontFamily">@font/poppins</item>
+    </style>
+    <style name="number_blue" parent="">
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">#0D6EFD</item>
+        <item name="android:textFontWeight">500</item>
+        <item name="fontFamily">@font/poppins</item>
+    </style>
+    <style name="price_black" parent="">
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">@color/black_for_app</item>
+        <item name="android:textFontWeight">500</item>
+        <item name="fontFamily">@font/poppins</item>
+    </style>
+    <style name="price_gray" parent="">
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">@color/dark_gray</item>
+        <item name="android:textFontWeight">500</item>
         <item name="fontFamily">@font/poppins</item>
     </style>
 

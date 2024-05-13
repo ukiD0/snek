@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:paddingTop="40dp"
+        android:paddingBottom="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/back_for_alert">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/congratilation"
+            android:layout_gravity="center"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Вы успешно оформили заказ"
+            android:layout_gravity="center"
+            android:gravity="center"
+            style="@style/suc"
+            android:layout_marginTop="24dp"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/back"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Вернуться к покупкам"
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="80dp"
+            android:background="@drawable/blue_btn"
+            android:layout_marginTop="30dp"
+            style="@style/blueBTN"
+            android:textAllCaps="false"/>
+    </LinearLayout>
+</LinearLayout>

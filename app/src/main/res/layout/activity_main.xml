@@ -45,7 +45,8 @@
             android:layout_height="wrap_content"
             android:text="test"
             android:layout_gravity="center|center"
-            android:visibility="gone"/>
+            android:visibility="gone"
+            style="@style/nameProfileText"/>
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/shoppingbagred"
             android:layout_width="wrap_content"
@@ -69,7 +70,8 @@
             android:layout_marginRight="20dp"
             android:text="text"
             android:layout_gravity="center|right"
-            android:visibility="gone"/>
+            android:visibility="gone"
+            style="@style/readyBlue"/>
     </androidx.cardview.widget.CardView>
 
     <fragment

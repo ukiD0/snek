@@ -19,7 +19,7 @@
     <string name="sales">Акции</string>
     <string name="popilar">Popular Shoes</string>
     <string name="lorem">Lorem ipsum dolor sit amet consectetur. Venenatis pulvinar lobortis risus consectetur morbi egestas id in bibendum. Volutpat nulla urna sit sed diam nulla.</string>
-
+    <string name="categ">Category</string>
     <string name="email">Check your email</string>
     <string name="text_from_dialog">We have send password recovery code in your email</string>
 </resources>

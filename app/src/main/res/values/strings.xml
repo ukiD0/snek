@@ -21,4 +21,5 @@
     <string name="lorem">Lorem ipsum dolor sit amet consectetur. Venenatis pulvinar lobortis risus consectetur morbi egestas id in bibendum. Volutpat nulla urna sit sed diam nulla.</string>
     <string name="email">Проверьте Ваш Email</string>
     <string name="text_from_dialog">Мы отправили код восстановления пароля на вашу электронную почту.</string>
+    <string name="categ">Категории</string>
 </resources>

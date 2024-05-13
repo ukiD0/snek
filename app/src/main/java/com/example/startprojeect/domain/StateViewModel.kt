@@ -16,9 +16,10 @@ class StateViewModel:ViewModel() {
     private var _menu: MutableLiveData<Boolean> = MutableLiveData()
     private var _allUpperMenu: MutableLiveData<Boolean> = MutableLiveData()
     private var _text: MutableLiveData<AppCompatTextView> = MutableLiveData()
+    private var _visText: MutableLiveData<Boolean> = MutableLiveData()
     private var _heart: MutableLiveData<Boolean> = MutableLiveData()
     private var _textReady: MutableLiveData<AppCompatTextView> = MutableLiveData()
-
+    private var _visTextReady: MutableLiveData<Boolean> = MutableLiveData()
 
     val arrow: LiveData<Boolean> = _arrow
     val cardvisible:LiveData<Boolean> = _cardvisible
@@ -29,6 +30,7 @@ class StateViewModel:ViewModel() {
     val text : LiveData<AppCompatTextView> = _text
     val heart: LiveData<Boolean> = _heart
     val textReady: LiveData<AppCompatTextView> = _textReady
+
     init {
         _arrow.value = false
         _cardvisible.value = false
@@ -36,13 +38,15 @@ class StateViewModel:ViewModel() {
         _shoppingbag.value = false
         _menu.value = false
         _allUpperMenu.value = false
-        _text.value?.text = "test"
+        _visText.value = false
+        _visTextReady.value = false
         _heart.value = false
-        _textReady.value?.text ="test"
     }
+
     fun readyText(out_text: String){
-        _textReady.value?.text =out_text
+        _textReady.value?.text = out_text
     }
+
     fun setText(out_text: String){
         _text.value?.text = out_text
     }

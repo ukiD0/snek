@@ -20,8 +20,8 @@
             android:src="@drawable/hert_for_favorite"/>
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageSneekers"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="115dp"
+            android:layout_height="54dp"
             android:src="@drawable/image_small"/>
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/typeBestSeller"
@@ -50,13 +50,14 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_weight="1"/>
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:layout_width="34dp"
+                android:layout_height="35dp"
                 android:layout_gravity="right|bottom"
-                android:background="@drawable/selectoru_sneekers"/>
+                android:background="@drawable/selectoru_sneekers"
+                android:button="@null"
+                />
         </LinearLayout>
-
 
     </LinearLayout>
 

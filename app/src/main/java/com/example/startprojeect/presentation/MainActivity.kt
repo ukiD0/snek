@@ -54,7 +54,9 @@ class MainActivity : AppCompatActivity() {
         val botmenu = findViewById<CoordinatorLayout>(R.id.menumainID)
         val heart = findViewById<AppCompatImageView>(R.id.hearticon)
         val text = findViewById<AppCompatTextView>(R.id.texttexttext)
+        val textVisibility = findViewById<AppCompatTextView>(R.id.texttexttext)
         val ready = findViewById<AppCompatTextView>(R.id.textReady)
+        val readyVisibility = findViewById<AppCompatTextView>(R.id.textReady)
 
         stateViewModel.textReady.observe(this){
             if (it != null){
@@ -102,7 +104,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        setFullBright()
         binding.btmNAV.background = null
         binding.bottomAppBar.setBackgroundDrawable(resources.getDrawable(R.drawable.noshd))
 
@@ -110,11 +111,4 @@ class MainActivity : AppCompatActivity() {
         binding.btmNAV.setupWithNavController(navController)
 
         }
-    private fun setFullBright() {
-        val windowParams = window.attributes
-        windowParams.screenBrightness = 0.8f
-        window.attributes = windowParams
-    }
-
-
 }
