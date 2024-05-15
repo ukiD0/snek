@@ -17,6 +17,7 @@ import androidx.cardview.widget.CardView
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.isVisible
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
@@ -28,6 +29,7 @@ import com.example.startprojeect.databinding.ActivityMainBinding
 import com.example.startprojeect.databinding.FragmentSignInBinding
 import com.example.startprojeect.domain.StateViewModel
 import com.example.startprojeect.presentation.registration.SignInFragment
+import com.google.android.material.navigation.NavigationView
 import com.yandex.mapkit.MapKitFactory
 import io.paperdb.Paper
 

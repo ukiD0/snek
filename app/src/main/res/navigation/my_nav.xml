@@ -68,6 +68,9 @@
             app:destination="@id/signInFragment"
             app:popUpTo="@id/screenSplashFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_screenSplashFragment_to_registerAccountFragment"
+            app:destination="@id/registerAccountFragment" />
     </fragment>
     <fragment
         android:id="@+id/OTPVerificationFragment"
@@ -106,6 +109,9 @@
         <action
             android:id="@+id/action_homeFragment_to_shoppingBagFragment"
             app:destination="@id/shoppingBagFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
     </fragment>
     <fragment
         android:id="@+id/pdfViewFragment"
@@ -163,4 +169,12 @@
         android:name="com.example.startprojeect.presentation.OrderFragment"
         android:label="fragment_order_list"
         tools:layout="@layout/fragment_order_list" />
+    <fragment
+        android:id="@+id/sideMenuFragment"
+        android:name="com.example.startprojeect.presentation.SideMenuFragment"
+        android:label="SideMenuFragment" >
+        <action
+            android:id="@+id/action_sideMenuFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 </navigation>

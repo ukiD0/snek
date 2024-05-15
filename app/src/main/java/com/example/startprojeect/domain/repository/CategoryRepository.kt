@@ -1,4 +1,4 @@
-package com.example.startprojeect.data.repository
+package com.example.startprojeect.domain.repository
 
 import com.example.startprojeect.data.DbCon
 import com.example.startprojeect.data.category

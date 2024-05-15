@@ -6,10 +6,10 @@ import androidx.core.content.ContextCompat.getSystemService
 import androidx.lifecycle.ViewModel
 import com.example.startprojeect.data.DbCon
 import com.example.startprojeect.data.category
-import com.example.startprojeect.data.repository.CategoryInterface
-import com.example.startprojeect.data.repository.CategoryLocal
-import com.example.startprojeect.data.repository.CategoryModel
-import com.example.startprojeect.data.repository.CategoryRepository
+import com.example.startprojeect.domain.repository.CategoryInterface
+import com.example.startprojeect.domain.repository.CategoryLocal
+import com.example.startprojeect.domain.repository.CategoryModel
+import com.example.startprojeect.domain.repository.CategoryRepository
 import io.github.jan.supabase.postgrest.from
 import io.paperdb.Paper
 
@@ -20,6 +20,7 @@ class CategoryViewModel:ViewModel() {
     suspend fun getCategoryes(): List<category> {
         try {
             val categories = repositoryApi.getCategoryes()
+            categories
             Paper.book().write("categories", categories!!)
             return categories
         }catch (e:Exception){

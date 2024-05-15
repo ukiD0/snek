@@ -24,17 +24,21 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.example.startprojeect.Manifest
 import com.example.startprojeect.R
 import com.example.startprojeect.common.Helper
 import com.example.startprojeect.data.profile
 import com.example.startprojeect.databinding.BottomSheetBarcodeBinding
 import com.example.startprojeect.databinding.FragmentProdileBinding
 import com.example.startprojeect.domain.BucketViewModel
+import com.example.startprojeect.domain.KandinskiiViewModel
 import com.example.startprojeect.domain.ProdileViewModel
 import com.example.startprojeect.domain.StateViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.zxing.BarcodeFormat
 import com.journeyapps.barcodescanner.BarcodeEncoder
+import com.permissionx.guolindev.PermissionX
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.io.ByteArrayOutputStream
 import java.io.InputStream
@@ -45,6 +49,7 @@ class ProdileFragment : Fragment() {
     private lateinit var stateViewModel: StateViewModel
     private lateinit var prodileViewModel: ProdileViewModel
     private lateinit var bucketViewModel: BucketViewModel
+    private lateinit var kandinskiiViewModel: KandinskiiViewModel
 
     val galleryLauncher = registerForActivityResult(ActivityResultContracts.GetContent()){
         binding.photo.setImageURI(it)
@@ -57,7 +62,20 @@ class ProdileFragment : Fragment() {
             sendImageToServer(res)
         }
     }
-
+//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//        super.onViewCreated(view, savedInstanceState)
+//
+//        PermissionX.init(this)
+//            .permissions(Manifest.permission.CAMERA)
+//            .request { allGranted, deniedList ->
+//                if (allGranted) {
+//                    // Разрешение получено, можно выполнять операции, требующие доступа к камере
+//                    cameraLauncher.launch(intent)
+//                } else {
+//                    // Один или несколько разрешений были отклонены, нужно обработать эту ситуацию
+//                }
+//            }
+//    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -66,6 +84,7 @@ class ProdileFragment : Fragment() {
         stateViewModel = ViewModelProvider(requireActivity())[StateViewModel::class.java]
         prodileViewModel = ViewModelProvider(requireActivity())[ProdileViewModel::class.java]
         bucketViewModel = ViewModelProvider(requireActivity())[BucketViewModel::class.java]
+        kandinskiiViewModel = ViewModelProvider(requireActivity())[KandinskiiViewModel::class.java]
 
         val ready = requireActivity().findViewById<AppCompatTextView>(R.id.textReady)
         ready.isVisible = true
@@ -180,7 +199,6 @@ class ProdileFragment : Fragment() {
         }
     }
 
-    //Проверить
     private fun setFullBright() {
         val windowParams = activity?.window?.attributes
         windowParams?.screenBrightness = 0.8f
@@ -253,7 +271,18 @@ class ProdileFragment : Fragment() {
         }
     }
     private fun generateImage(){
+        Log.e("CliskME","Clidck,me")
+        kandinskiiViewModel.generateImage("Котенок")
+        Log.e("TryGEnerate","generatter")
 
+        lifecycleScope.launch {
+            delay(5000)
+            kandinskiiViewModel.getImage()
+        }.invokeOnCompletion {
+            if (kandinskiiViewModel.bitmap  != null){
+                binding.photo.setImageBitmap(kandinskiiViewModel.bitmap)
+            }
+        }
     }
 
 

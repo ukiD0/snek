@@ -17,15 +17,26 @@ import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.startprojeect.R
+import com.example.startprojeect.common.Helper
+import com.example.startprojeect.data.favorite_product
+import com.example.startprojeect.data.product
 import com.example.startprojeect.databinding.FragmentFavoriteListBinding
+import com.example.startprojeect.domain.FavoriteViewModel
+import com.example.startprojeect.domain.ProdileViewModel
+import com.example.startprojeect.domain.ProductViewModel
 import com.example.startprojeect.domain.StateViewModel
+import com.example.startprojeect.presentation.adapters.MyFavoriteRecyclerViewAdapter
+import kotlinx.coroutines.launch
 
 
 class FavoriteFragment : Fragment() {
     private lateinit var binding: FragmentFavoriteListBinding
     private lateinit var stateViewModel: StateViewModel
+    private lateinit var favoriteViewModel: FavoriteViewModel
+    private lateinit var productViewModel: ProductViewModel
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         activity?.window?.apply {
@@ -39,6 +50,8 @@ class FavoriteFragment : Fragment() {
     ): View? {
         binding = FragmentFavoriteListBinding.inflate(layoutInflater,container,false)
         stateViewModel = ViewModelProvider(requireActivity())[StateViewModel::class.java]
+        favoriteViewModel = ViewModelProvider(requireActivity())[FavoriteViewModel::class.java]
+        productViewModel = ViewModelProvider(requireActivity())[ProductViewModel::class.java]
 
         val ready = requireActivity().findViewById<AppCompatTextView>(R.id.textReady)
         ready.isVisible = false
@@ -57,6 +70,20 @@ class FavoriteFragment : Fragment() {
         val arrback = requireActivity().findViewById<AppCompatImageView>(R.id.arrowback)
         arrback.setOnClickListener {
             findNavController().navigate(R.id.action_favoriteFragment_to_homeFragment)
+        }
+
+        var result: List<product>? = null
+        lifecycleScope.launch {
+            try {
+                result = favoriteViewModel.allFavorite()
+            }catch (e:Exception){
+                Helper.Alert(requireActivity(),e.cause.toString(),e.message.toString())
+            }
+        }.invokeOnCompletion {
+            if (result != null){
+                binding.list.adapter = MyFavoriteRecyclerViewAdapter(result!!)
+                binding.list.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false)
+            }
         }
 
 

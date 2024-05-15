@@ -58,8 +58,10 @@ dependencies {
     implementation ("com.yandex.android:maps.mobile:4.5.1-lite")
     implementation("androidx.core:core-splashscreen:1.0.1")
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
-    //barcode
+    implementation("com.yarolegovich:sliding-root-nav:1.1.1")
+    implementation ("com.guolindev.permissionx:permissionx:1.7.1")
 
+    //barcode
     implementation("com.journeyapps:zxing-android-embedded:4.3.0")
 
 
