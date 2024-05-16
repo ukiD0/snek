@@ -78,14 +78,15 @@ class SignInFragment : Fragment() {
                 Helper.Alert(requireContext(),"Валидация успешна","Happy day")
             }
         }
-//        binding.emailValidation.setOnClickListener {
-//            if (binding.email.text.toString().contains("@")
-//                && binding.email.text.toString().contains(".")){
-//                Helper.Alert(requireContext(),"Валидация успешна","Haappy day")
-//            }else{
-//                Helper.Alert(requireContext(),"Ошибка","Проверьте правильность введенного результата")
-//            }
-//        }
+        binding.emailValidation.setOnClickListener {
+            if (binding.email.text!!.split("@")[0].all { it.isLowerCase() || it.isDigit()}
+                && binding.email.text!!.split("@")[1].all { it.isDigit() || it.isLowerCase()}  )
+            {
+                Toast.makeText(requireContext(),"Ok",Toast.LENGTH_LONG).show()
+            }else{
+                Helper.Alert(requireContext(),"Ошибка","Проверьте правильность введенного результата")
+            }
+        }
 
 
         binding.createUserTExt.setOnClickListener {

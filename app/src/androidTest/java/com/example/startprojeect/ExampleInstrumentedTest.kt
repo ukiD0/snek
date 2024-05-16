@@ -75,36 +75,35 @@ class ExampleInstrumentedTest {
             .check(matches(isDisplayed()))
     }
     @Test
-    fun testValidEmailFormat() {
-        val emailEditText = onView(withId(R.id.email))
-        emailEditText.perform(typeText("mew@ru.ru"), closeSoftKeyboard())
-        onView(withId(R.id.email)).check { emailEditText, _ ->
-            if (emailEditText is EditText){
-                assert(emailEditText.text.contains("@")
-                        && emailEditText.text.contains("."))
-                assert(emailEditText.text.toString()
-                    .replace("@", "")
-                    .replace(".", "")
-                    .all { it.isLowerCase() }
-                )
+    fun testInvalidFormatWithAlert(){
+        val invalidEMail = "test@EEqq,ru"
+        onView(withId(R.id.email))
+            .perform(typeText(invalidEMail), closeSoftKeyboard())
+        onView(withId(R.id.email)).check { textEdit, _ ->
+            if (textEdit is EditText){
+                val name = textEdit.text.toString().split("@")[0]
+                val domain = textEdit.text.toString().split("@")[1].replace(".","")
+                assert(name.all { !it.isDigit() || !it.isLowerCase() })
+                assert(domain.all { !it.isDigit() || !it.isLowerCase() })
             }
         }
+        onView(withId(R.id.emailValidation)).perform(click())
+        onView(withText("Ошибка"))
+            .inRoot(isDialog())
+            .check(matches(isDisplayed()))
     }
     @Test
-    fun testValidEmailFormat11() {
+    fun testValidEmailFormat() {
         val validEmail = "test@example1.com"
         onView(withId(R.id.email))
             .perform(typeText(validEmail), closeSoftKeyboard())
         onView(withId(R.id.email)).check{editText,_ ->
             if (editText is EditText){
-                assert(editText.text.contains("@") && editText.text.contains("."))
-                assert(editText.text.toString()
-                    .replace("@","")
-                    .replace(".","")
-                    .any { it.isDigit() || it.isLowerCase()}
-
-
-                )
+                val emailSplit = editText.text.toString().split("@")
+                val name = emailSplit[0]
+                val domain = editText.text.toString().split("@")[1].replace(".","")
+                assert(name.all { it.isLowerCase() || it.isDigit()})
+                assert(domain.all { it.isDigit() || it.isLowerCase() })
             }
         }
     }
