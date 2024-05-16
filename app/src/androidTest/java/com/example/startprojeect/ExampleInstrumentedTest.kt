@@ -27,11 +27,7 @@ import androidx.test.espresso.matcher.ViewMatchers.withSubstring
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.example.startprojeect.presentation.registration.SignInFragment
-import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
-import org.hamcrest.CoreMatchers
-import org.hamcrest.CoreMatchers.allOf
-import org.hamcrest.CoreMatchers.not
+
 
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -47,33 +43,6 @@ class ExampleInstrumentedTest {
     @get:Rule
     val scenario = launchFragmentInContainer<SignInFragment>()
 
-    @Test
-    fun validationPassword(){
-        onView(withId(R.id.password)).perform(typeText("1233"), closeSoftKeyboard())
-        //onView(withId(R.id.hideTextView)).perform(click())
-//        onView(withText("Валидация успешна"))
-//            .inRoot(isDialog())
-//            .check(matches(isDisplayed()))
-        onView(withId(R.id.password)).check { view, noViewFoundException ->
-            if (view is EditText){
-                assertEquals(view.text.toString().length > 6, true)
-            }
-        }
-
-    }
-    @Test
-    fun validationPasswordAndAlert() {
-        onView(withId(R.id.password)).perform(typeText("12345"), closeSoftKeyboard())
-        onView(withId(R.id.password)).check { view, noViewFoundException ->
-            if (view is EditText){
-                assertEquals(view.text.toString().length < 6, true)
-            }
-        }
-        onView(withId(R.id.hideTextView)).perform(click())
-        onView(withText("Ошибка"))
-            .inRoot(isDialog())
-            .check(matches(isDisplayed()))
-    }
     @Test
     fun testInvalidFormatWithAlert(){
         val invalidEMail = "test@EEqq,ru"

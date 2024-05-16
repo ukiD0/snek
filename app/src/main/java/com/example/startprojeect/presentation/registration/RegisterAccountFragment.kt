@@ -72,6 +72,7 @@ class RegisterAccountFragment : Fragment() {
             findNavController().navigate(R.id.action_registerAccountFragment_to_pdfViewFragment)
         }
 
+
         return  binding.root
     }
 

@@ -110,6 +110,7 @@
                     android:background="@drawable/input_text"
                     android:hint="●●●●●●●●"
                     android:inputType="textPassword"
+
                    />
             </com.google.android.material.textfield.TextInputLayout>
 

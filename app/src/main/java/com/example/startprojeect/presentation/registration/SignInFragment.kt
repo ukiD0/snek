@@ -8,25 +8,25 @@
 package com.example.startprojeect.presentation.registration
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.isVisible
-import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.startprojeect.R
 import com.example.startprojeect.common.Helper
-import com.example.startprojeect.data.DbCon
 import com.example.startprojeect.databinding.FragmentSignInBinding
 import com.example.startprojeect.domain.AuthViewModel
-import com.example.startprojeect.domain.StateViewModel
 import io.github.jan.supabase.gotrue.user.UserInfo
 import io.paperdb.Paper
 import kotlinx.coroutines.launch
+import org.passay.PasswordGenerator
+import java.lang.StringBuilder
 
 
 class SignInFragment : Fragment() {
@@ -72,10 +72,17 @@ class SignInFragment : Fragment() {
         }
 
         binding.hideTextView.setOnClickListener {
-            if (binding.password.text?.length!! < 6){
-                Helper.Alert(requireContext(),"Ошибка","Password must be at least 6 characters long")
-            }else{
-                Helper.Alert(requireContext(),"Валидация успешна","Happy day")
+            val pass = binding.password.text?.toString()
+            if (pass != null) {
+                val isValidLength = pass.length >= 8
+                val containsLowerCase = pass.any { it.isLowerCase() }
+                val containsUpperCase = pass.any { it.isUpperCase() }
+                val containsWhitespace = pass.any { it.isWhitespace() }
+                val containsSpecialChar = pass.any { it.isSpecial() }
+                val containsDigit = pass.any { it.isDigit() }
+                if (!isValidLength || !containsLowerCase || !containsUpperCase || !containsWhitespace || !containsSpecialChar || !containsDigit) {
+                    Helper.Alert(requireContext(), "Ошибка", "Password must be at least 8 characters long and contain lower case, upper case, whitespace, special characters, and digits.")
+                }
             }
         }
         binding.emailValidation.setOnClickListener {
@@ -99,5 +106,8 @@ class SignInFragment : Fragment() {
 
         return binding.root
     }
-
+    private fun Char.isSpecial(): Boolean {
+        val symb = "!@#$%^&*()_+-=?><|/"
+        return this in symb
+    }
 }
