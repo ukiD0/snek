@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".presentation.CategoryPageFragment"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/test_back">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/arrowbac"
+                android:layout_width="25dp"
+                android:layout_height="18dp"
+                android:layout_gravity="left"
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/icon_back" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/categoryName"
+                android:layout_width="130dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="test" />
+
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="23dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/categ" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/listCategory"
+        android:name="com.example.startprojeect.presentation.CategoryPageFragment"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="23dp"
+        android:layout_marginTop="16dp"
+        app:layoutManager="LinearLayoutManager"
+        tools:context=".presentation.CategoryPageFragment"
+        tools:listitem="@layout/fragment_home" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list_prosuct"
+        android:name="com.example.startprojeect.presentation.CategoryPageFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="15dp"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="2"
+        tools:context=".presentation.CategoryPageFragment"
+        tools:listitem="@layout/popular_for_home" />
+
+</LinearLayout>

@@ -23,7 +23,7 @@ class BucketViewModel:ViewModel() {
         bucket.upload("${user?.id}/image1.jpeg",byteArray,true)
         val url = DbCon.supabase.storage.from("for_images").publicUrl("${user?.id}/image1.jpeg")
         DbCon.supabase.from("profile").update({
-            profile::avatar setTo url
+            profile::photo setTo url
         }
         ){
             select()

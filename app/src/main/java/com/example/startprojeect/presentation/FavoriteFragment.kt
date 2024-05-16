@@ -7,9 +7,7 @@ package com.example.startprojeect.presentation
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,11 +19,9 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.startprojeect.R
 import com.example.startprojeect.common.Helper
-import com.example.startprojeect.data.favorite_product
-import com.example.startprojeect.data.product
+import com.example.startprojeect.data.products
 import com.example.startprojeect.databinding.FragmentFavoriteListBinding
 import com.example.startprojeect.domain.FavoriteViewModel
-import com.example.startprojeect.domain.ProdileViewModel
 import com.example.startprojeect.domain.ProductViewModel
 import com.example.startprojeect.domain.StateViewModel
 import com.example.startprojeect.presentation.adapters.MyFavoriteRecyclerViewAdapter
@@ -65,14 +61,13 @@ class FavoriteFragment : Fragment() {
         stateViewModel.arrowVisibility(true)
         stateViewModel.shoppingVisibility(false)
         stateViewModel.heartVisibility(true)
-        stateViewModel.setText("Избранное")
 
         val arrback = requireActivity().findViewById<AppCompatImageView>(R.id.arrowback)
         arrback.setOnClickListener {
             findNavController().navigate(R.id.action_favoriteFragment_to_homeFragment)
         }
 
-        var result: List<product>? = null
+        var result: List<products>? = null
         lifecycleScope.launch {
             try {
                 result = favoriteViewModel.allFavorite()

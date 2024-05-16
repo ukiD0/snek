@@ -8,18 +8,16 @@ package com.example.startprojeect.presentation.adapters
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
-import com.example.startprojeect.data.favorite_product
-import com.example.startprojeect.data.product
+import com.example.startprojeect.data.products
 
 import com.example.startprojeect.databinding.FragmentFavoriteBinding
 import com.squareup.picasso.Picasso
 
 
 class MyFavoriteRecyclerViewAdapter(
-    private val values2: List<product>
+    private val values2: List<products>
 ) : RecyclerView.Adapter<MyFavoriteRecyclerViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -36,9 +34,9 @@ class MyFavoriteRecyclerViewAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item2 = values2[position]
-        Picasso.get().load(item2.image).into(holder.image)
-        holder.name.text = item2.name
-        holder.price.text = item2.price.toString()
+        Picasso.get().load(item2.photo).into(holder.image)
+        holder.name.text = item2.title
+        holder.price.text = item2.cost.toString()
     }
 
     override fun getItemCount(): Int = values2.size

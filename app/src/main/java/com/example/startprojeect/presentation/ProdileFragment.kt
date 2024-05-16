@@ -24,7 +24,6 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.example.startprojeect.Manifest
 import com.example.startprojeect.R
 import com.example.startprojeect.common.Helper
 import com.example.startprojeect.data.profile
@@ -62,20 +61,6 @@ class ProdileFragment : Fragment() {
             sendImageToServer(res)
         }
     }
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//
-//        PermissionX.init(this)
-//            .permissions(Manifest.permission.CAMERA)
-//            .request { allGranted, deniedList ->
-//                if (allGranted) {
-//                    // Разрешение получено, можно выполнять операции, требующие доступа к камере
-//                    cameraLauncher.launch(intent)
-//                } else {
-//                    // Один или несколько разрешений были отклонены, нужно обработать эту ситуацию
-//                }
-//            }
-//    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -119,9 +104,9 @@ class ProdileFragment : Fragment() {
             }
         }.invokeOnCompletion {
             if (result != null){
-                binding.nameEditText.setText(result?.name.toString())
-                binding.surnameEditText.setText(result?.surname.toString())
-                binding.adressEditText.setText(result?.location.toString())
+                binding.nameEditText.setText(result?.firstname.toString())
+                binding.surnameEditText.setText(result?.lastname.toString())
+                binding.adressEditText.setText(result?.address.toString())
                 binding.telephoneEditText.setText(result?.phone.toString())
             }
         }
@@ -131,9 +116,9 @@ class ProdileFragment : Fragment() {
                 try {
                     res = prodileViewModel.setProfileData(
                         profile(
-                            name = binding.nameEditText.text.toString(),
-                            surname = binding.surnameEditText.text.toString(),
-                            location = binding.adressEditText.text.toString(),
+                            firstname = binding.nameEditText.text.toString(),
+                            lastname = binding.surnameEditText.text.toString(),
+                            address = binding.adressEditText.text.toString(),
                             phone = binding.telephoneEditText.text.toString()
                         )
                     )
@@ -166,6 +151,11 @@ class ProdileFragment : Fragment() {
         }
 
         generateBArCode()
+
+        PermissionX.init(this)
+            .permissions(android.Manifest.permission.CAMERA)
+            .request {_,_,_ -> }
+
         return binding.root
     }
     fun generateBArCode(code: String = "1234"){

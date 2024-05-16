@@ -5,56 +5,37 @@
  * */
 package com.example.startprojeect.presentation
 
-import android.content.res.Resources
-import android.content.res.Resources.Theme
-import android.graphics.Color
-import android.graphics.Matrix
 import android.os.Bundle
-import android.text.BoringLayout.Metrics
-import android.util.Log
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
-import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
-import androidx.core.content.res.ResourcesCompat
-import androidx.core.view.GravityCompat
 import androidx.core.view.isVisible
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.startprojeect.R
 import com.example.startprojeect.common.Helper
-import com.example.startprojeect.data.DbCon
-import com.example.startprojeect.data.category
-import com.example.startprojeect.data.product
-import com.example.startprojeect.data.stock
-import com.example.startprojeect.databinding.FragmentHomeBinding
+import com.example.startprojeect.data.actions
+import com.example.startprojeect.data.cart
+import com.example.startprojeect.data.categories
+import com.example.startprojeect.data.products
 import com.example.startprojeect.databinding.FragmentHomeListBinding
 import com.example.startprojeect.domain.AuthViewModel
+import com.example.startprojeect.domain.CartViewModel
 import com.example.startprojeect.domain.CategoryViewModel
 import com.example.startprojeect.domain.ProductViewModel
 import com.example.startprojeect.domain.StateViewModel
 import com.example.startprojeect.domain.StockViewModel
+import com.example.startprojeect.presentation.adapters.MyHomeRecyclerViewAdapter
+import com.example.startprojeect.presentation.adapters.PopularAdapter
 import com.example.startprojeect.presentation.adapters.StockAdapter
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.navigation.NavigationView
-import com.yarolegovich.slidingrootnav.SlidingRootNav
 import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder
-import com.yarolegovich.slidingrootnav.SlidingRootNavLayout
-import com.yarolegovich.slidingrootnav.transform.RootTransformation
-import io.github.jan.supabase.gotrue.auth
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 
 
@@ -65,6 +46,7 @@ class HomeFragment : Fragment() {
     private lateinit var productViewModel: ProductViewModel
     private lateinit var stockViewModel: StockViewModel
     private lateinit var authViewModel: AuthViewModel
+    private lateinit var cartViewModel: CartViewModel
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         activity?.window?.apply {
@@ -83,6 +65,7 @@ class HomeFragment : Fragment() {
         productViewModel = ViewModelProvider(requireActivity())[ProductViewModel::class.java]
         stockViewModel = ViewModelProvider(requireActivity())[StockViewModel::class.java]
         authViewModel = ViewModelProvider(requireActivity())[AuthViewModel::class.java]
+        cartViewModel = ViewModelProvider(requireActivity())[CartViewModel::class.java]
 
         val ready = requireActivity().findViewById<AppCompatTextView>(R.id.textReady)
         ready.isVisible = false
@@ -128,6 +111,7 @@ class HomeFragment : Fragment() {
         logoutt.setOnClickListener{
             lifecycleScope.launch {
                 try {
+                    openMenuuu.closeMenu()
                     authViewModel.logOut()
                 }catch (e:Exception){
                     Helper.Alert(requireContext(),e.cause.toString(),e.message.toString())
@@ -153,7 +137,7 @@ class HomeFragment : Fragment() {
 
         }
 
-        var categorysss: List<category>? = null
+        var categorysss: List<categories>? = null
         lifecycleScope.launch {
             try {
                 categorysss = categoryViewModel.getCategoryes()
@@ -162,12 +146,12 @@ class HomeFragment : Fragment() {
             }
         }.invokeOnCompletion {
             if (categorysss != null){
-                binding.listCategory.adapter = MyHomeRecyclerViewAdapter(categorysss!!)
+                binding.listCategory.adapter = MyHomeRecyclerViewAdapter(categorysss!!,requireActivity())
                 binding.listCategory.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
             }
         }
 
-        var popular: List<product>? = null
+        var popular: List<products>? = null
         lifecycleScope.launch {
             try {
                popular = productViewModel.getPopular()
@@ -176,11 +160,14 @@ class HomeFragment : Fragment() {
             }
         }.invokeOnCompletion {
             if (popular != null){
-                binding.listPopular.adapter = SneekersAdapter(popular!!)
-                binding.listPopular.layoutManager = GridLayoutManager(requireContext(),GridLayoutManager.VERTICAL)
+                binding.listPopular.adapter = PopularAdapter(popular!!,requireActivity(),lifecycleScope)
+                binding.listPopular.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
             }
         }
-        var stock: List<stock>? = null
+
+
+
+        var stock: List<actions>? = null
         lifecycleScope.launch {
             try {
                 stock = stockViewModel.getAllStock()
@@ -196,10 +183,6 @@ class HomeFragment : Fragment() {
 
 
         return binding.root
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return super.onOptionsItemSelected(item)
     }
 
 }

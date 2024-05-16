@@ -3,9 +3,8 @@ package com.example.startprojeect.data
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class stock(
+data class favourite(
     var id: String? = null,
-    var stock_img_url: String? = null,
-    var discount: Int? = null,
-    var created_at: String? = null
+    var product_id: String? = null,
+    var user_id: String? = null
 )

@@ -38,6 +38,7 @@
             android:src="@drawable/icon_back" />
 
         <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/hideTextView"
             style="@style/loginBig"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -47,6 +48,7 @@
             android:text="@string/logInMain" />
 
         <TextView
+            android:id="@+id/emailValidation"
             style="@style/loginSmall"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
@@ -83,8 +85,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/input_text"
                     android:hint="xyz@gmail.com"
-                    android:inputType="textEmailAddress"
-                    android:text="valusakorovkina@gmail.com" />
+                    android:inputType="textEmailAddress"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -109,7 +110,7 @@
                     android:background="@drawable/input_text"
                     android:hint="●●●●●●●●"
                     android:inputType="textPassword"
-                    android:text="123456789" />
+                   />
             </com.google.android.material.textfield.TextInputLayout>
 
             <androidx.appcompat.widget.AppCompatTextView

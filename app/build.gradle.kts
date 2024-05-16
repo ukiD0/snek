@@ -72,6 +72,10 @@ dependencies {
     androidTestImplementation("androidx.test:runner:1.5.2")
     androidTestImplementation("androidx.test:rules:1.5.0")
     androidTestImplementation("androidx.navigation:navigation-testing:2.7.7")
+    androidTestImplementation ("org.hamcrest:hamcrest-library:1.3")
+    testImplementation ("org.mockito:mockito-core:3.11.2")
+
+
 
 
 

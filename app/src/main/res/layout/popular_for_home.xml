@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginRight="18dp"
+    android:gravity="center"
+    android:layout_marginBottom="13dp">
+
+    <LinearLayout
+        android:id="@+id/one_favorite"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/for_card"
+        android:paddingTop="11dp"
+        android:paddingLeft="11dp">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/selectedHert"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/selector_heart"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageSneekers"
+            android:layout_width="115dp"
+            android:layout_height="54dp"
+            android:src="@drawable/image_small"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/typeBestSeller"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Best Seller"
+            android:layout_marginTop="16dp"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/nameSneekers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nike Air Max"
+            android:layout_marginTop="4dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/priceForSneekers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$37.8"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="8dp"/>
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/selectorCart"
+                android:layout_width="34dp"
+                android:layout_height="35dp"
+                android:layout_gravity="right|bottom"
+                android:background="@drawable/selectoru_sneekers"
+                android:button="@null"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

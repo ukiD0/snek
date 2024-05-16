@@ -7,23 +7,18 @@ package com.example.startprojeect.presentation
 
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
-import com.example.startprojeect.R
-import com.example.startprojeect.data.category
-import com.example.startprojeect.data.product
+import androidx.core.view.isVisible
+import com.example.startprojeect.data.products
 import com.example.startprojeect.databinding.FragmentFavoriteBinding
 
-import com.example.startprojeect.databinding.FragmentHomeBinding
 import com.squareup.picasso.Picasso
 
 
 class SneekersAdapter(
-    private val values: List<product>
+    private val values: List<products>
 ) : RecyclerView.Adapter<SneekersAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -40,9 +35,13 @@ class SneekersAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = values[position]
-        holder.typeBestSeller.text = "Best Seller"
-        Picasso.get().load(item.image).into(holder.sneekImage)
-        holder.price.text = item.price.toString()
+        if (item.is_best_seller == true){
+            holder.typeBestSeller.isVisible = true
+            holder.typeBestSeller.text = "Best seller"
+        }
+
+        Picasso.get().load(item.photo).into(holder.sneekImage)
+        holder.price.text = item.cost.toString()
     }
 
     override fun getItemCount(): Int = values.size

@@ -112,6 +112,9 @@
         <action
             android:id="@+id/action_homeFragment_to_signInFragment"
             app:destination="@id/signInFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_categoryPageFragment"
+            app:destination="@id/categoryPageFragment" />
     </fragment>
     <fragment
         android:id="@+id/pdfViewFragment"
@@ -158,6 +161,9 @@
         <action
             android:id="@+id/action_shoppingBagFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_shoppingBagFragment_to_shoppBagSecondFragment"
+            app:destination="@id/shoppBagSecondFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -175,6 +181,35 @@
         android:label="SideMenuFragment" >
         <action
             android:id="@+id/action_sideMenuFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoryPageFragment"
+        android:name="com.example.startprojeect.presentation.CategoryPageFragment"
+        android:label="fragment_category_page"
+        tools:layout="@layout/fragment_category_page" >
+        <action
+            android:id="@+id/action_categoryPageFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_categoryPageFragment_to_sneekViewDetailsFragment"
+            app:destination="@id/sneekViewDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sneekViewDetailsFragment"
+        android:name="com.example.startprojeect.presentation.SneekViewDetailsFragment"
+        android:label="fragment_sneek_view_details"
+        tools:layout="@layout/fragment_sneek_view_details" />
+    <fragment
+        android:id="@+id/shoppBagSecondFragment"
+        android:name="com.example.startprojeect.presentation.ShoppBagSecondFragment"
+        android:label="fragment_shopp_bag_second"
+        tools:layout="@layout/fragment_shopp_bag_second" >
+        <action
+            android:id="@+id/action_shoppBagSecondFragment_to_shoppingBagFragment"
+            app:destination="@id/shoppingBagFragment" />
+        <action
+            android:id="@+id/action_shoppBagSecondFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
 </navigation>

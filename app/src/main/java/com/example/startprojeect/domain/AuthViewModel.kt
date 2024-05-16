@@ -17,12 +17,6 @@ class AuthViewModel:ViewModel() {
     private var _user: MutableLiveData<UserInfo> = MutableLiveData()
     private var _email: String = ""
 
-    val user : LiveData<UserInfo> = _user
-
-    init {
-       val userInfo = DbCon.supabase.auth.currentUserOrNull()
-    }
-
     suspend fun createUser(out_email: String, out_password: String): UserInfo? {
          DbCon.supabase.auth.signUpWith(Email){
             email = out_email
@@ -30,16 +24,18 @@ class AuthViewModel:ViewModel() {
         }
         return DbCon.supabase.auth.currentUserOrNull()
     }
-
+     fun getUserID(): String? {
+        return DbCon.supabase.auth.currentUserOrNull()?.id
+    }
     suspend fun logIn(out_email: String,out_password: String): UserInfo? {
         DbCon.supabase.auth.signInWith(Email){
             email = out_email
             password = out_password
         }
         val user = DbCon.supabase.auth.currentUserOrNull()
-        if (user != null){
-            Paper.book().write("isUserLogin", true)
-        }
+//        if (user != null){
+//            Paper.book().write("isUserLogin", true)
+//        }
         return user
 
     }

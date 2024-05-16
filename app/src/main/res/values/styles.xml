@@ -128,5 +128,17 @@
         <item name="android:textFontWeight">500</item>
         <item name="fontFamily">@font/poppins</item>
     </style>
+    <style name="snekShopTitle" parent="">
+        <item name="android:textSize">26dp</item>
+        <item name="android:textColor">@color/black_for_app</item>
+        <item name="android:textFontWeight">700</item>
+        <item name="fontFamily">@font/poppins</item>
+    </style>
+    <style name="snekShopSubTitle" parent="">
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">@color/dark_gray</item>
+        <item name="android:textFontWeight">500</item>
+        <item name="fontFamily">@font/poppins</item>
+    </style>
 
 </resources>

@@ -38,12 +38,16 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var stateViewModel: StateViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
+
         installSplashScreen()
+
         super.onCreate(savedInstanceState)
+
         Paper.init(this)
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         MapKitFactory.setApiKey(ApiKey.MAPKIT_API_KEY)
-
+        MapKitFactory.initialize(this)
         setContentView(binding.root)
 
         stateViewModel = ViewModelProvider(this)[StateViewModel::class.java]
@@ -56,9 +60,7 @@ class MainActivity : AppCompatActivity() {
         val botmenu = findViewById<CoordinatorLayout>(R.id.menumainID)
         val heart = findViewById<AppCompatImageView>(R.id.hearticon)
         val text = findViewById<AppCompatTextView>(R.id.texttexttext)
-        val textVisibility = findViewById<AppCompatTextView>(R.id.texttexttext)
         val ready = findViewById<AppCompatTextView>(R.id.textReady)
-        val readyVisibility = findViewById<AppCompatTextView>(R.id.textReady)
 
         stateViewModel.textReady.observe(this){
             if (it != null){

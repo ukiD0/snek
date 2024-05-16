@@ -9,6 +9,7 @@
     android:layout_marginTop="10dp">
 
         <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/blueCard"
             android:visibility="gone"
             android:layout_width="60dp"
             android:layout_height="match_parent"
@@ -46,6 +47,7 @@
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     <LinearLayout
+        android:id="@+id/mainCard"
         android:layout_width="match_parent"
         android:layout_height="105dp"
         android:orientation="horizontal"
@@ -83,6 +85,7 @@
         </LinearLayout>
     </LinearLayout>
     <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/redCard"
         android:visibility="gone"
         android:layout_width="60dp"
         android:layout_height="match_parent"

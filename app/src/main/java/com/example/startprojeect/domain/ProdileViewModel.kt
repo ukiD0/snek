@@ -17,20 +17,18 @@ class ProdileViewModel:ViewModel() {
     }
     suspend fun setProfileData(profileData : profile): profile? {
         profileData.user_id = _user.value?.id
-        Log.e("profData", profileData.toString())
         val check = DbCon.supabase.from("profile").select {
             filter {
                 profile::user_id eq  _user.value?.id
             }
         }.decodeSingleOrNull<profile>()
-        Log.e("check", check.toString())
         if (check != null){
            return DbCon.supabase.from("profile").update(
                 {
                     profile::phone setTo  profileData.phone
-                    profile::name setTo profileData.name
-                    profile::surname setTo profileData.surname
-                    profile::location setTo profileData.location
+                    profile::firstname setTo profileData.firstname
+                    profile::lastname setTo profileData.lastname
+                    profile::address  setTo profileData.address
                 }
             ){
                 select()
@@ -42,7 +40,6 @@ class ProdileViewModel:ViewModel() {
             val insert = DbCon.supabase.from("profile").insert(profileData){
                 select()
             }.decodeSingleOrNull<profile>()
-            Log.e("insert", insert.toString())
             return insert
         }
     }
